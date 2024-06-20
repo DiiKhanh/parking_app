@@ -28,6 +28,7 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
   const [profileData, setProfileData] = useState<ProfileModel>(profile);
   const [isLoading, setIsLoading] = useState(false);
   const [plates, setPlates] = useState('');
+  const [photoPlates, setPhotoPlates] = useState('');
   const auth = useSelector(authSelector);
   const dispatch = useDispatch();
 
@@ -46,7 +47,7 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
 
 
   const handleUpdatePlates = async () => {
-    const api = `http://192.168.1.6:5000/detect_license_plate`;
+    const api = `http://neuralparking.online/detect_license_plate`;
 
     const formData = new FormData();
     formData.append('image', {
@@ -56,7 +57,6 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
     });
 
     setIsLoading(true);
-    console.log("form", formData);
     try {
       const res: any = await axios.post(api, formData, {
         headers: {
@@ -65,20 +65,10 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
       })
 
       setIsLoading(false);
-      // const newData = res.data.data;
-      console.log(res.data);
-      // const authData = {...auth, filenameUser: newData.filenameUser, fullname: newData.fullname,
-      //   photoUserUrl: newData.photoUserUrl
-      // };
-
-      // await AsyncStorage.setItem('auth', JSON.stringify(authData));
-      // dispatch(addAuth(authData));
-
-      // navigation.navigate('ProfileScreen', {
-      //   isUpdated: true,
-      //   id: profile.id,
-      // });
+      setPlates(res.data.license_plates[0]);
+      setPhotoPlates(res.data.image_url);
     } catch (error) {
+      console.log("error upload bsx", error);
       setIsLoading(false);
       Toast.show({ type: "error", text1: 'Error plates id', visibilityTime: 2000 });
     }
@@ -86,6 +76,35 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
 
   const handleDeleteImage = () => {
     setFileSelected(null);
+  }
+
+  const handleUpdate = async () => {
+    const api = `/update-plates?id=${profile.id}`;
+
+    const newData = {
+      platesId: plates,
+      photoPlatesUrl: photoPlates
+    };
+
+    setIsLoading(true);
+
+    try {
+      const res: any = await userAPI.HandleUser(api, newData, 'patch');
+
+      setIsLoading(false);
+      const authData = {...auth, platesId: newData.platesId, photoPlatesUrl: newData.photoPlatesUrl};
+
+      await AsyncStorage.setItem('auth', JSON.stringify(authData));
+      dispatch(addAuth(authData));
+
+      navigation.navigate('ProfileScreen', {
+        isUpdated: true,
+        id: profile.id,
+      });
+    } catch (error) {
+      setIsLoading(false);
+      Toast.show({ type: "error", text1: 'Error update plates', visibilityTime: 2000 });
+    }
   }
 
   return (
@@ -100,6 +119,13 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
             }
           />
         </RowComponent>
+        {
+          auth.photoPlatesUrl && !fileSelected &&
+          <RowComponent styles={{flexDirection:"column", gap: 5, alignItems:"center"}}>
+            <Image source={{uri:auth.photoPlatesUrl}} style={{height:250, width:250}} />
+          </RowComponent>
+        }
+        
         {
           fileSelected ? 
           <>
@@ -120,7 +146,7 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
         <InputComponent
           placeholder="platesId"
           editable={false}
-          value={plates}
+          value={auth.platesId ? auth.platesId : plates}
           onChange={val => handleChangeValue('platesId', val)}
         />
       </SectionComponent>
@@ -128,6 +154,7 @@ const EditPlatesIdScreen = ({navigation, route}: any) => {
       <ButtonComponent
       text="Update"
       type="primary"
+      onPress={() => handleUpdate()}
       /> 
       <LoadingModal visible={isLoading} />
     </ContainerComponent>

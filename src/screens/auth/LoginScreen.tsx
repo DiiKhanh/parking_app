@@ -81,6 +81,7 @@ const LoginScreen = ({navigation}: any) => {
             width: 225,
             height: 114,
             marginBottom: 30,
+            objectFit:"contain"
           }}
         />
       </SectionComponent>

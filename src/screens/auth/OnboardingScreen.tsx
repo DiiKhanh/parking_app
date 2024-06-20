@@ -17,32 +17,35 @@ const OnboardingScreen = ({navigation}: any) => {
         loop={false}
         onIndexChanged={num => setIndex(num)}
         index={index}
-        activeDotColor={appColors.white}>
+        activeDotColor={appColors.primary}>
         <Image
-          source={require('../../assets/images/onboarding-1.png')}
+          source={require('../../assets/images/ob1.png')}
           style={{
             flex: 1,
             width: appInfo.sizes.WIDTH,
             height: appInfo.sizes.HEIGHT,
             resizeMode: 'cover',
+            objectFit:"contain"
           }}
         />
         <Image
-          source={require('../../assets/images/onboarding-2.png')}
+          source={require('../../assets/images/ob2.png')}
           style={{
             flex: 1,
             width: appInfo.sizes.WIDTH,
             height: appInfo.sizes.HEIGHT,
             resizeMode: 'cover',
+            objectFit:"contain"
           }}
         />
         <Image
-          source={require('../../assets/images/onboarding-3.png')}
+          source={require('../../assets/images/ob3.png')}
           style={{
             flex: 1,
             width: appInfo.sizes.WIDTH,
             height: appInfo.sizes.HEIGHT,
             resizeMode: 'cover',
+            objectFit:"contain"
           }}
         />
       </Swiper>
@@ -63,7 +66,7 @@ const OnboardingScreen = ({navigation}: any) => {
         <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
           <TextComponent
             text="Skip"
-            color={appColors.gray2}
+            color={appColors.primary}
             font={fontFamilies.medium}
           />
         </TouchableOpacity>
@@ -73,7 +76,7 @@ const OnboardingScreen = ({navigation}: any) => {
           }>
           <TextComponent
             text="Next"
-            color={appColors.white}
+            color={appColors.primary}
             font={fontFamilies.medium}
           />
         </TouchableOpacity>

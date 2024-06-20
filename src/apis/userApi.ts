@@ -6,7 +6,7 @@ class UserAPI {
     data?: any,
     method?: 'get' | 'post' | 'put' | 'delete' | 'patch',
   ) => {
-    console.log("data", data)
+    
     return await axiosClient(`/users${url}`, {
       method: method ?? 'get',
       data,

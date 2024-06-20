@@ -70,18 +70,19 @@ const ProfileScreen = ({navigation, route}: any) => {
     <ContainerComponent
       back
       title={route.params ? '' : 'Profile'}
-      right={
-        <ButtonComponent
-          icon={
-            <MaterialIcons
-              name="more-vert"
-              size={24}
-              color={appColors.text}
-              onPress={() => {}}
-            />
-          }
-        />
-      }>
+      // right={
+      //   <ButtonComponent
+      //     icon={
+      //       <MaterialIcons
+      //         name="more-vert"
+      //         size={24}
+      //         color={appColors.text}
+      //         onPress={() => {}}
+      //       />
+      //     }
+      //   />
+      // }
+      >
       {isLoading ? (
         <ActivityIndicator />
       ) : profile ? (

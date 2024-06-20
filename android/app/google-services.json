@@ -14,10 +14,39 @@
       },
       "oauth_client": [
         {
-          "client_id": "1088891845183-2tafeo8shsdmencgu9updoo0s2eamcv8.apps.googleusercontent.com",
+          "client_id": "1088891845183-k3pb2ebdm68emenrc7dgi2csrkkdr6r5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSEJ9DYdxXdPDVLIB2QfK2UEWnB5-JE-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088891845183-k3pb2ebdm68emenrc7dgi2csrkkdr6r5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088891845183:android:3d6f27208f540703d6d68a",
+        "android_client_info": {
+          "package_name": "com.seapp.neuralparking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088891845183-uql2edlsse3r1fu9cbuet6ifm471j90h.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.parking",
+            "package_name": "com.seapp.neuralparking",
             "certificate_hash": "7a7126e4ed4733383ec16019771ecccac596658d"
           }
         },

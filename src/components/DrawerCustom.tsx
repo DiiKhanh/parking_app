@@ -39,36 +39,36 @@ const DrawerCustom = ({navigation}: any) => {
       title: 'My Profile',
       icon: <User size={size} color={color} />,
     },
-    {
-      key: 'Message',
-      title: 'Message',
-      icon: <Message2 size={size} color={color} />,
-    },
-    {
-      key: 'Calendar',
-      title: 'Calendar',
-      icon: <Calendar size={size} color={color} />,
-    },
-    {
-      key: 'Bookmark',
-      title: 'Bookmark',
-      icon: <Bookmark2 size={size} color={color} />,
-    },
-    {
-      key: 'ContactUs',
-      title: 'Contact Us',
-      icon: <Sms size={size} color={color} />,
-    },
-    {
-      key: 'Settings',
-      title: 'Settings',
-      icon: <Setting2 size={size} color={color} />,
-    },
-    {
-      key: 'HelpAndFAQs',
-      title: 'Help & FAQs',
-      icon: <MessageQuestion size={size} color={color} />,
-    },
+    // {
+    //   key: 'Message',
+    //   title: 'Message',
+    //   icon: <Message2 size={size} color={color} />,
+    // },
+    // {
+    //   key: 'Calendar',
+    //   title: 'Calendar',
+    //   icon: <Calendar size={size} color={color} />,
+    // },
+    // {
+    //   key: 'Bookmark',
+    //   title: 'Bookmark',
+    //   icon: <Bookmark2 size={size} color={color} />,
+    // },
+    // {
+    //   key: 'ContactUs',
+    //   title: 'Contact Us',
+    //   icon: <Sms size={size} color={color} />,
+    // },
+    // {
+    //   key: 'Settings',
+    //   title: 'Settings',
+    //   icon: <Setting2 size={size} color={color} />,
+    // },
+    // {
+    //   key: 'HelpAndFAQs',
+    //   title: 'Help & FAQs',
+    //   icon: <MessageQuestion size={size} color={color} />,
+    // },
     {
       key: 'SignOut',
       title: 'Sign Out',
@@ -99,7 +99,6 @@ const DrawerCustom = ({navigation}: any) => {
         });
         break;
       default:
-        console.log(key);
         break;
     }
 
@@ -129,7 +128,7 @@ const DrawerCustom = ({navigation}: any) => {
           </RowComponent>
         )}
       />
-      <RowComponent justify="flex-start">
+      {/* <RowComponent justify="flex-start">
         <TouchableOpacity
           style={[
             globalStyles.button,
@@ -137,9 +136,9 @@ const DrawerCustom = ({navigation}: any) => {
           ]}>
           <MaterialCommunityIcons name="crown" size={22} color={'#00F8FF'} />
           <SpaceComponent width={8} />
-          <TextComponent color="#00F8FF" text="Upgrade Pro" />
+          <TextComponent color="#00F8FF" text="Receive Free Ticket Parking" />
         </TouchableOpacity>
-      </RowComponent>
+      </RowComponent> */}
     </View>
   );
 };

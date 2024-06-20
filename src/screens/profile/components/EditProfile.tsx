@@ -77,13 +77,13 @@ const EditProfile = (props: Props) => {
       <>
         <RowComponent>
           <TextComponent flex={1} text="My PlatesId" title size={18} />
-          <RowComponent
+          {/* <RowComponent
             styles={[globalStyles.tag, {backgroundColor: '#FDFDFE'}]}
             onPress={() => setIsVisibleModalCategory(true)}>
             <Edit2 size={18} color={appColors.primary} />
             <SpaceComponent width={8} />
             <TextComponent text="Change" color={appColors.primary} />
-          </RowComponent>
+          </RowComponent> */}
         </RowComponent>
       </>
     </SectionComponent>

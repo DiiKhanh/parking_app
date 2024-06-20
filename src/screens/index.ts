@@ -8,6 +8,7 @@ import HomeScreen from './home/HomeScreen';
 import EditPlatesIdScreen from './profile/EditPlatesIdScreen';
 import EditProfileScreen from './profile/EditProfileScreen';
 import ProfileScreen from './profile/ProfileScreen';
+import EventDetail from './home/EventDetail';
 
 export {
   HomeScreen,
@@ -20,4 +21,5 @@ export {
   NotFound,
   EditProfileScreen,
   EditPlatesIdScreen,
+  EventDetail,
 };
