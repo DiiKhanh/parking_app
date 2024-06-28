@@ -77,11 +77,11 @@ android {
 
     namespace "com.parking"
     defaultConfig {
-        applicationId "com.seapp.neuralparking"
+        applicationId "com.seappuit.neuralparking"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "5.0"
+        versionCode 1
+        versionName "1.0"
     }
     signingConfigs {
         debug {
